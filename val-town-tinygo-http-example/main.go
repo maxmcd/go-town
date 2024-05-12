@@ -8,7 +8,18 @@ import (
 )
 
 func main() {
+	img := renderPresetImage()
 	gotown.ListenAndServe(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello %s", r.URL.Path)
+		if r.URL.Path == "/mandlebrot.png" {
+			w.Header().Set("Content-Type", "image/png")
+			w.Write(img)
+			return
+		}
+		w.Header().Set("Content-Type", "text/html")
+		fmt.Fprintf(w, `
+			<style>body {font-family: sans-serif}</style>
+			Go-Rendered Mandlebrot image served from a Go HTTP handler <a href="https://www.val.town/v/maxm/tinygoHttpExample">on Val Town</a>
+			<br /><img src='/mandlebrot.png' />
+		`)
 	}))
 }
