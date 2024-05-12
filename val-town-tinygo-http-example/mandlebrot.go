@@ -9,7 +9,7 @@ import (
 	"sync"
 )
 
-func renderPresetImage() []byte {
+func renderImage() []byte {
 	// $  -palette "Hippi" -xpos -0.0091275 -ypos 0.7899912 -radius .01401245 -smoothness 10 -width 50 -height 50 -file "test1.png"
 	s := Service{
 		WG:              &sync.WaitGroup{},
