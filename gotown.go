@@ -103,7 +103,10 @@ func ListenAndServe(handler http.Handler) {
 		}
 		res := &response{Headers: map[string][]string{}}
 		handler.ServeHTTP(res, p.ToHTTPRequest())
-
+		if _, ok := res.Headers["Content-Type"]; !ok {
+			mimeType := http.DetectContentType(res.Body)
+			res.Headers["Content-Type"] = []string{mimeType}
+		}
 		return json.Marshal(res)
 	})
 }
