@@ -1,4 +1,4 @@
 
 .DS_Store
 *.wasm
-!val-town-go-http-examples/*.wasm
+!val-town-tinygo-http-example/*.wasm

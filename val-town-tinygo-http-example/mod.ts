@@ -1,6 +1,6 @@
 import Context from "https://deno.land/std@0.93.0/wasi/snapshot_preview1.ts";
 
-import { handleRequest } from "https://deno.land/x/gotown/mod.ts";
+import { handleRequest } from "../mod.ts";
 
 const context = new Context({ args: [], env: {} });
 let instance: WebAssembly.Instance;
