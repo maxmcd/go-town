@@ -17,6 +17,7 @@ func main() {
 		}
 		w.Header().Set("Content-Type", "text/html")
 		fmt.Fprintf(w, `
+			<head><link rel="icon" href="/mandlebrot.png"></head>
 			<style>body {font-family: sans-serif}</style>
 			Go-Rendered Mandlebrot image served from a Go HTTP handler <a href="https://www.val.town/v/maxm/tinygoHttpExample">on Val Town</a>
 			<br /><img src='/mandlebrot.png' />
